@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../axios";
+import axios from "../Axios/axios";
 import "./Row.css";
 import Youtube from "react-youtube";
 
@@ -21,18 +21,19 @@ function Row({ title, fetchUrl, isLargeRow }) {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
-      setMovies(request.data.results);
+      const data = await request.data.results; // added by me +
+      setMovies(data);
       return request;
     }
     fetchData();
-  }, [fetchUrl]);//removed ", [fetchUrl])"
+  }, [fetchUrl]); //removed ", [fetchUrl])"
 
   const handleClick = async (movie) => {
     if (trailerUrl) {
       setTrailerUrl("");
     } else {
        
-      for (var i=0; i<10000000000; i++) {}
+      // for (var i=0; i<10000000000; i++) {}  // removed by me -
       let trailerurl = await axios.get(
         `/movie/${movie.id}/videos?api_key=fb34530271b349314af0de263d16ab5a`
       );

@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import Row from "./components/Row";
-import Nav from "./components/Nav";
-import Banner from "./components/Banner";
+import Row from "./components/Row/Row";
+import Nav from "./components/Nav/Nav";
+import Banner from "./components/Banner/Banner";
 import requests from "./requests";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       <Row
         title="NETFLIX ORIGINALS"
         fetchUrl={requests.fetchNetflixOriginals}
-        isLargeRow
+        isLargeRow = {true} // changes made by me 
       />
       <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
       <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
