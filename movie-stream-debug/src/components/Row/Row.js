@@ -26,7 +26,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
       return request;
     }
     fetchData();
-  }, [fetchUrl]); //removed ", [fetchUrl])"
+  }, [fetchUrl]);
 
   const handleClick = async (movie) => {
     if (trailerUrl) {
